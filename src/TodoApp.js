@@ -1,5 +1,6 @@
 import React from 'react';
 import {createGlobalStyle} from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
 
 //styled-components를 활용한 배경색상 지정.
 const GlobalStyle = createGlobalStyle`
@@ -13,7 +14,7 @@ function TodoApp() {
     return(
         <>
             <GlobalStyle />
-            <div>안녕하세요</div>
+            <TodoTemplate>안녕하세요</TodoTemplate>
         </>
     );
 }
