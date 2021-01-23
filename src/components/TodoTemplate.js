@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'; //리액트 컴포넌트를 만들기위해서 꼭 필요함.
+import styled from 'styled-components'; //컴포넌트에 스타일을 지정할 수 있게 해주는 라이브러리
 
 const TemplateStyle = styled.div`
     width: 512px;
