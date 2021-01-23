@@ -28,4 +28,7 @@ sketch
 .history
 .ionide
 
+# Optional eslint cache
+.eslintcache
+
 # End of https://www.toptal.com/developers/gitignore/api/react,visualstudiocode
