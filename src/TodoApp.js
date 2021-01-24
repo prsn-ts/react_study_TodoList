@@ -3,6 +3,7 @@ import React from 'react'; //리액트 컴포넌트를 만들기위해서 꼭 �
 import {createGlobalStyle} from 'styled-components'; 
 import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
 
 //styled-components를 활용한 배경색상 지정.(글로벌 스타일을 추가하고 싶을 땐 createGlobalStyle 사용)
 const GlobalStyle = createGlobalStyle`
@@ -18,6 +19,7 @@ function TodoApp() {
             <GlobalStyle />
             <TodoTemplate>
                 <TodoHead/>
+                <TodoList/>
             </TodoTemplate>
         </>
     );
