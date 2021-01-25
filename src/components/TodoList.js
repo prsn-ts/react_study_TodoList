@@ -1,5 +1,6 @@
 import { React } from "react";
 import styled from "styled-components";
+import TodoItem from './TodoItem';
 
 //특정 스타일이 적용된 TodoList 컴포넌트를 만들기 위한 const TodoList 생성.
 const TodoList = styled.div`
@@ -19,13 +20,18 @@ const TodoList = styled.div`
     padding: 20px 32px;
     padding-bottom: 48px;
     overflow-y: auto; /* 위 또는 아래의 내용이 넘칠 때 스크롤바 처리 */
-    background: gray; /* 사이즈 조절이 잘 되고 있는지 확인하기위한 용도 */
+    //background: gray; /* 사이즈 조절이 잘 되고 있는지 확인하기위한 용도 */
 `;
 
 //JSX로 정의된 함수 생성
 function todoList() {
     return (
-        <TodoList>TodoList</TodoList>
+        <TodoList>
+            <TodoItem text="프로젝트 생성하기" done={true} />
+            <TodoItem text="컴포넌트 스타일링 하기" done={true} />
+            <TodoItem text="Context 만들기" done={false} />
+            <TodoItem text="기능 구현하기" done={false} />
+        </TodoList>
     );
 };
 
