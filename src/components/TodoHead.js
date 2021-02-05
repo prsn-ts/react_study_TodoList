@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTodoState } from '../components/TodoContext'; //함수형 컴포넌트를 가져온다.
 
 const TodoHead = styled.div`
     /* 
@@ -34,6 +35,8 @@ const TodoHead = styled.div`
 `;
 
 function Head() {
+    const todos = useTodoState(); //useReducer로 상태를 관리하는 context 가져와서 todos 변수에 저장.
+    console.log(todos); //결과 확인해보기
     return(
         <TodoHead>
             <h1>2021년 1월 23일</h1>
