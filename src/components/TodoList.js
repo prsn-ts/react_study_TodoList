@@ -1,6 +1,7 @@
 import { React } from "react";
 import styled from "styled-components";
 import TodoItem from './TodoItem';
+import { useTodoState } from './TodoContext';
 
 //특정 스타일이 적용된 TodoList 컴포넌트를 만들기 위한 const TodoList 생성.
 const TodoList = styled.div`
@@ -24,16 +25,42 @@ const TodoList = styled.div`
 `;
 
 //JSX로 정의된 함수 생성
-function todoList() {
+function List() {
+    const todos = useTodoState();
+    console.log(todos);
+
     return (
-        <TodoList>
+        <>
+        {/* 
+            아래의 태그들과 같이 화면에 보여주기위해 todos 배열에 map 함수를 통해 순서대로 배열에 있는
+            값들을 꺼내 TodoItem 컴포넌트 안에 속성으로 지정해준다.
+
             <TodoItem text="프로젝트 생성하기" done={true} />
             <TodoItem text="컴포넌트 스타일링 하기" done={true} />
             <TodoItem text="Context 만들기" done={false} />
-            <TodoItem text="기능 구현하기" done={false} />
+            <TodoItem text="기능 구현하기" done={false} /> 
+        */}
+
+        {/* 
+            TodoItem 컴포넌트의 key 속성은 각 어아탬(항목)을 구분하기위한 key 값 설정으로
+            각 엘리먼트의 고유성을 부여하기위한 방법이다.
+
+            TodoItem 컴포넌트의 text 속성은 todo 안에 있는 배열의 "text"라는 키에 담겨있는 값을
+            갖게되고 이를 출력하면 innerText로 나오게 된다.
+         */}
+        <TodoList>
+            {todos.map(todo => (
+                <TodoItem 
+                key={todo.id} 
+                id={todo.id} 
+                done={todo.done}
+                text={todo.text}>
+                </TodoItem>
+            ))}
         </TodoList>
+        </>
     );
 };
 
 //JSX를 담은 함수 방출
-export default todoList;
+export default List;
