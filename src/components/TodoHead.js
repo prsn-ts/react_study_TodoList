@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useTodoState } from '../components/TodoContext'; //함수형 컴포넌트를 가져온다.
+import { UseTodoState } from '../components/TodoContext'; //함수형 컴포넌트를 가져온다.
 
 const TodoHead = styled.div`
     /* 
@@ -35,7 +35,7 @@ const TodoHead = styled.div`
 `;
 
 function Head() {
-    const todos = useTodoState(); //useReducer로 상태를 관리하는 context 가져와서 todos 변수에 저장.
+    const todos = UseTodoState(); //useContext로 상태를 관리하는 context 가져와서 todos 변수에 저장.
     const undonetasks = todos.filter(todo => !todo.done); //done 키에 저장된 값중 false인 것만 필터링하여 가져와서 undonetasks 변수에 저장
     console.log(undonetasks); //결과 확인해보기
 

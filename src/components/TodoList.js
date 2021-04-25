@@ -1,7 +1,7 @@
 import { React } from "react";
 import styled from "styled-components";
 import TodoItem from './TodoItem';
-import { useTodoState } from './TodoContext';
+import { UseTodoState } from './TodoContext';
 
 //특정 스타일이 적용된 TodoList 컴포넌트를 만들기 위한 const TodoList 생성.
 const TodoList = styled.div`
@@ -26,7 +26,7 @@ const TodoList = styled.div`
 
 //JSX로 정의된 함수 생성
 function List() {
-    const todos = useTodoState();
+    const todos = UseTodoState();
     console.log(todos);
 
     return (

@@ -65,8 +65,12 @@ export function TodoProvider({ children }) {
   );
 }
 
-//useContext를 필요한 컴포넌트에서 직접 사용하는 대신에 useContext 를 사용하는 useTodoState(), useTodoDispatch(), useTodoNextId() 등의 커스텀 Hook
-//생성한 context를 사용할 수 있도록 useContext() 함수(커스텀 Hook)를 return 통해 내보내기
+/* 
+useContext를 필요한 컴포넌트에서 직접 사용하는 대신에 useContext 를 사용하는 useTodoState(), useTodoDispatch(), useTodoNextId() 등의 커스텀 Hook
+생성한 context를 사용할 수 있도록 useContext() 함수(커스텀 Hook)를 return 통해 내보내기
+※component를 내보낼 땐(export) 첫글자는 대문자로 시작해야한다!.※
+*/
+
 /*
   에러메세지를 출력하는 코드를 작성한 이유(추측)
 
@@ -75,22 +79,22 @@ export function TodoProvider({ children }) {
   useTodoState(), useTodoDispatch(), useTodoNextId() 등의 함수를 사용하는 곳에서 임포트해서 사용하면
   지정된 범위가 아니므로 에러가 난다. (TodoApp.js 파일에 TodoProvider 컴포넌트의 범위를 확인해보면 좋음)
 */
-export function useTodoState() {
+export function UseTodoState() {
   const context = useContext(TodoStateContext);
   if(!context) { //컨텍스트가 존재하는 지 여부 확인
     throw new Error('Cannot find TodoProvider'); //없으면 에러메세지 출력
   }
   return context;
 }
-export function useTodoDispatch() {
-  const context = useContext(TodoStateContext);
+export function UseTodoDispatch() {
+  const context = useContext(TodoDispatchContext);
   if(!context) { //컨텍스트가 존재하는 지 여부 확인
     throw new Error('Cannot find TodoProvider'); //없으면 에러메세지 출력
   }
   return context;
 }
-export function useTodoNextId() {
-  const context = useContext(TodoStateContext);
+export function UseTodoNextId() {
+  const context = useContext(TodoNextIdContext);
   if(!context) { //컨텍스트가 존재하는 지 여부 확인
     throw new Error('Cannot find TodoProvider'); //없으면 에러메세지 출력
   }

@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
     MdDelete는 할일을 지우기위한 휴지통 svg 이미지를 가져온다.
 */
 import { MdDone, MdDelete } from "react-icons/md"; 
+import { UseTodoDispatch } from "./TodoContext";
 
 const Remove = styled.div`
     display:flex; //flex 스타일 지정
@@ -73,12 +74,24 @@ const Text = styled.div`
     `}
 `;
 
+//할일 체크 및 지우기 기능 추가, 자세한 내용 분석은 나중에 따로하기..(지금은 따라해보고 만들어지는 과정을 눈에 익혀두자)
 function todoItem({ id, done, text }) {
+    const dispatch = UseTodoDispatch();
+    const onToggle = () => dispatch({ type: 'TOGGLE', id });
+    const onRemove = () => dispatch({ type: 'REMOVE', id });
+
+    console.log(dispatch);
+    console.log(id);
+    console.log(done);
+    console.log(text);
+    console.log(onToggle);
+    console.log(onRemove);
+
     return (
         <TodoItem>
-            <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
+            <CheckCircle done={done} onClick={onToggle}>{done && <MdDone />}</CheckCircle>
             <Text done={done}>{text}</Text>
-            <Remove>
+            <Remove onClick={onRemove}>
                 <MdDelete />
             </Remove>
         </TodoItem>
