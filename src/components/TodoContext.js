@@ -65,7 +65,8 @@ export function TodoProvider({ children }) {
   );
 }
 
-//생성한 context를 사용할 수 있도록 useContext() 함수를 통해 내보내기
+//useContext를 필요한 컴포넌트에서 직접 사용하는 대신에 useContext 를 사용하는 useTodoState(), useTodoDispatch(), useTodoNextId() 등의 커스텀 Hook
+//생성한 context를 사용할 수 있도록 useContext() 함수(커스텀 Hook)를 return 통해 내보내기
 /*
   에러메세지를 출력하는 코드를 작성한 이유(추측)
 
